@@ -11,7 +11,7 @@ export type Movie = {
 
 const MovieItem = ({ _id, title }: Movie) => {
   return (
-    <Link href={_id}>
+    <Link href={`movies/${_id}`}>
       <ListItem>{title}</ListItem>
     </Link>
   );

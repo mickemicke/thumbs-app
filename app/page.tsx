@@ -1,6 +1,5 @@
-import MoviesContainer from "./components/MoviesContainer";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
-  /* @ts-expect-error Server Component */
-  return <MoviesContainer />;
+  redirect("/movies");
 }
