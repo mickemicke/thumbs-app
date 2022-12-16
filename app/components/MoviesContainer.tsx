@@ -1,6 +1,7 @@
-import MoviesPresentation from "./MoviesPresentation";
+import { toErrorWithMessage } from "../../helpers/toErrorWithMessage";
+import MoviesPresentation, { Movie } from "./MoviesPresentation";
 
-const getData = async (): Promise<Movie[]> | Promise<void> => {
+const getData = async (): Promise<Movie[]> => {
   const api = "http://localhost:3000/api/movies";
   try {
     const res = await fetch(`${api}`, {
@@ -9,7 +10,7 @@ const getData = async (): Promise<Movie[]> | Promise<void> => {
     const json = await res.json();
     return json;
   } catch (error) {
-    console.log(error);
+    throw toErrorWithMessage(error);
   }
 };
 
